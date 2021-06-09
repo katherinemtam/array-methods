@@ -1,4 +1,4 @@
-import { map } from './array-methods.js';
+import { map, filter } from './array-methods.js';
 
 describe('map(arr, callback)', () => {
 
@@ -19,6 +19,22 @@ describe('map(arr, callback)', () => {
     
     expect(newArr).toEqual(['YUZU', 'PERSIMMON', 'POMELO', 'empty', 'STARFRUIT']);
     expect(arr.length).toEqual(newArr.length);
+
+  });
+});
+
+describe('filter(arr, callback)', () => {
+
+  test.only('returns the new Array of "filtered" items with true or "truthy" values', () => {
+
+    const arr = [0, '0', 1, 2, 3, false, 'false'];
+
+    const newArr = filter(arr, (item) => {
+      if(!item) return;
+      else return item;
+    });
+    
+    expect(newArr).toEqual(['0', 1, 2, 3, 'false']);
 
   });
 });
