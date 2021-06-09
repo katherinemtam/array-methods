@@ -1,4 +1,4 @@
-import { map, filter, findIndex, reduce } from './array-methods.js';
+import { map, filter, findIndex, reduce, every } from './array-methods.js';
 
 describe('map(arr, callback)', () => {
 
@@ -64,7 +64,7 @@ describe('reduce(arr, callback [, initialValue]', () => {
 
   });
 
-  test.only('returns the final accumulator value WITH an initial value', () => {
+  test('returns the final accumulator value WITH an initial value', () => {
 
     const arr = [1, 2, 3, 4, 5];
     const initialValue = 5;
@@ -72,6 +72,26 @@ describe('reduce(arr, callback [, initialValue]', () => {
     const accumulator = reduce(arr, (accumulator, item) => accumulator + item, initialValue);
 
     expect(accumulator).toEqual(20);
+
+  });
+});
+
+describe('every(arr, callback)', () => {
+
+  test.only('returns the true if every item in the Array has returned true, otherwise false', () => {
+
+    const arr = [
+      'panda',
+      'leopard',
+      'capybara',
+      'chinchilla'
+    ];
+
+    const includesO = every(arr, (item) => item.includes('o'));
+    const includesA = every(arr, (item) => item.includes('a'));
+
+    expect(includesO).toEqual(false);
+    expect(includesA).toEqual(true);
 
   });
 });
