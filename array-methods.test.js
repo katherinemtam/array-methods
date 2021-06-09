@@ -67,12 +67,12 @@ describe('reduce(arr, callback [, initialValue]', () => {
 
   test('returns the final accumulator value WITH an initial value', () => {
 
-    const arr = [1, 2, 3, 4, 5];
-    const initialValue = 5;
+    const arr = ['c', 'd', 'e'];
+    const initialValue = 'ab';
 
     const accumulator = reduce(arr, (accumulator, item) => accumulator + item, initialValue);
 
-    expect(accumulator).toEqual(20);
+    expect(accumulator).toEqual('abcde');
 
   });
 });
@@ -100,7 +100,7 @@ describe('every(arr, callback)', () => {
 
 describe('forEach(arr, callback)', () => {
 
-  test.only('returns undefined', () => {
+  test('returns undefined', () => {
 
     const arr = [
       'margarita',
