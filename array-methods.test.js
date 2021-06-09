@@ -1,4 +1,5 @@
-import { map, filter, findIndex, reduce, every } from './array-methods.js';
+import { map, filter, findIndex, reduce, every, forEach } from './array-methods.js';
+import { jest } from '@jest/globals';
 
 describe('map(arr, callback)', () => {
 
@@ -94,5 +95,37 @@ describe('every(arr, callback)', () => {
     expect(includesO).toEqual(false);
     expect(includesA).toEqual(true);
 
+  });
+});
+
+describe('forEach(arr, callback)', () => {
+
+  test.only('returns undefined', () => {
+
+    const arr = [
+      'margarita',
+      'cosmopolitan',
+      'moscow mule',
+      'martini',
+      'mojito'
+    ];
+
+    const mockCallback = jest.fn((item) => item);
+
+    const output = forEach(arr, mockCallback);
+    
+    expect(mockCallback).toHaveBeenCalledTimes(5);
+
+    // only works for one call at a time
+    expect(mockCallback).toHaveBeenCalledWith('margarita');
+    expect(mockCallback).toHaveBeenCalledWith('cosmopolitan');
+  
+    // mockCallBack.mock.calls returns each index as an array; array of arrays
+    // first index targets index within array of drinks
+    // second index targets index of each drink --> only one string hence [0]
+    expect(mockCallback.mock.calls[0][0]).toBe('margarita');
+    expect(mockCallback.mock.calls[2][0]).toBe('moscow mule');
+
+    expect(output).toBe(undefined);
   });
 });
