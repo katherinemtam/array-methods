@@ -8,7 +8,7 @@ describe('map(arr, callback)', () => {
       'yuzu',
       'persimmon',
       'pomelo',
-      '',
+      ,
       'starfruit'
     ];
 
@@ -78,7 +78,7 @@ describe('reduce(arr, callback [, initialValue]', () => {
 
 describe('every(arr, callback)', () => {
 
-  test.only('returns the true if every item in the Array has returned true, otherwise false', () => {
+  test('returns the true if every item in the Array has returned true, otherwise false', () => {
 
     const arr = [
       'panda',
