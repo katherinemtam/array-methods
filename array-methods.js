@@ -20,3 +20,14 @@ export const findIndex = (arr, callback) => {
   }
   return -1;
 };
+
+export const reduce = (arr, callback, initialValue) => {
+  
+  let accumulator = initialValue === undefined ? 0 : initialValue;
+ 
+  for(let i = 0; i < arr.length; i++) {
+    accumulator = callback(accumulator, arr[i], initialValue);
+    // console.log(accumulator);
+  }
+  return accumulator;
+};
