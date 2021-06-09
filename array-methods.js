@@ -31,3 +31,11 @@ export const reduce = (arr, callback, initialValue) => {
   }
   return accumulator;
 };
+
+export const every = (arr, callback) => {
+  
+  for(let i = 0; i < arr.length; i++) {
+    if(!callback(arr[i])) return false;
+  }
+  return true;
+};
