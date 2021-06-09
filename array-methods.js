@@ -36,7 +36,8 @@ export const reduce = (arr, callback, initialValue) => {
 export const every = (arr, callback) => {
   
   for(let i = 0; i < arr.length; i++) {
-    if(!callback(arr[i])) return false;
+    if(arr[i])
+      if(!callback(arr[i])) return false;
   }
   return true;
 };

@@ -54,7 +54,7 @@ describe('findIndex(arr, callback)', () => {
 
 describe('reduce(arr, callback [, initialValue]', () => {
 
-  test.only('returns the final accumulator value WITHOUT an initial value', () => {
+  test('returns the final accumulator value WITHOUT an initial value', () => {
 
     const arr = [1, 2, 3, , 4, 5];
 
@@ -83,6 +83,7 @@ describe('every(arr, callback)', () => {
     const arr = [
       'panda',
       'leopard',
+      ,
       'capybara',
       'chinchilla'
     ];
