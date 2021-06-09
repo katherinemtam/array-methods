@@ -25,9 +25,9 @@ describe('map(arr, callback)', () => {
 
 describe('filter(arr, callback)', () => {
 
-  test('returns the new Array of "filtered" items with true or "truthy" values', () => {
+  test.only('returns the new Array of "filtered" items with true or "truthy" values', () => {
 
-    const arr = [0, '0', 1, 2, 3, false, 'false'];
+    const arr = [0, '0', 1, 2, 3, , false, 'false'];
 
     const newArr = filter(arr, (item) => {
       if(!item) return;
