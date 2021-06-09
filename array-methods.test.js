@@ -1,4 +1,4 @@
-import { map, filter } from './array-methods.js';
+import { map, filter, findIndex } from './array-methods.js';
 
 describe('map(arr, callback)', () => {
 
@@ -25,7 +25,7 @@ describe('map(arr, callback)', () => {
 
 describe('filter(arr, callback)', () => {
 
-  test.only('returns the new Array of "filtered" items with true or "truthy" values', () => {
+  test('returns the new Array of "filtered" items with true or "truthy" values', () => {
 
     const arr = [0, '0', 1, 2, 3, false, 'false'];
 
@@ -35,6 +35,19 @@ describe('filter(arr, callback)', () => {
     });
     
     expect(newArr).toEqual(['0', 1, 2, 3, 'false']);
+
+  });
+});
+
+describe('findIndex(arr, callback)', () => {
+
+  test.only('returns the index of the found item, -1 if no item is found', () => {
+
+    const arr = [0, 1, 2, 3, 4, 5];
+
+    const index = findIndex(arr, (item) => item === 2);
+    
+    expect(index).toEqual(2);
 
   });
 });
