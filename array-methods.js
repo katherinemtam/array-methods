@@ -50,8 +50,7 @@ export const every = (arr, callback) => {
 export const forEach = (arr, callback) => {
 
   for(let i = 0; i < arr.length; i++) {
-    if(arr[i])
-      if(!callback(arr[i])) return false;
+    if(arr[i]) callback(arr[i]);
   }
   return undefined;
 };
