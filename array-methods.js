@@ -7,9 +7,14 @@ export const map = (arr, callback) => {
 };
 
 export const filter = (arr, callback) => {
-  let newArr = []; 
+  const newArr = []; 
+  let j = 0;
+
   for(let i = 0; i < arr.length; i++) {
-    if(callback(arr[i])) newArr = [...newArr, arr[i]];
+    if(callback(arr[i])) {
+      newArr[j] = arr[i];
+      j++;
+    }
   }
   return newArr;
 };
@@ -40,4 +45,13 @@ export const every = (arr, callback) => {
       if(!callback(arr[i])) return false;
   }
   return true;
+};
+
+export const forEach = (arr, callback) => {
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i])
+      if(!callback(arr[i])) return false;
+  }
+  return undefined;
 };
